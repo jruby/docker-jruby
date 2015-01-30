@@ -8,9 +8,6 @@ ENV PATH /opt/jruby/bin:$PATH
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
 
-# docker-library/java#19
-RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
-
 ENV GEM_HOME /usr/local/bundle
 ENV PATH $GEM_HOME/bin:$PATH
 RUN gem install bundler \
