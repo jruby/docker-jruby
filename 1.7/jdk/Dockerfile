@@ -1,5 +1,5 @@
 FROM java:8-jdk
-ENV JRUBY_VERSION 1.7.18
+ENV JRUBY_VERSION 1.7.19
 RUN mkdir /opt/jruby \
   && curl -sSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz \
   | tar -zxC /opt/jruby --strip-components=1 \
