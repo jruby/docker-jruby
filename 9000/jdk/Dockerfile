@@ -1,6 +1,6 @@
 FROM java:8-jdk
-ENV JRUBY_VERSION 9.0.0.0.pre1
-ENV JRUBY_SHA1 fc2e037643f233332687bdd9d6d3405ed981c21c
+ENV JRUBY_VERSION 9.0.0.0.pre2
+ENV JRUBY_SHA1 eca37f67ed13daf426f5e1f034209c4d0fb9ef10
 RUN mkdir /opt/jruby \
   && curl -fSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA1 /tmp/jruby.tar.gz" | sha1sum -c - \
