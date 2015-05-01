@@ -1,4 +1,7 @@
 FROM java:8-jre
+
+RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
 ENV JRUBY_VERSION 1.7.19
 ENV JRUBY_SHA1 a3296d1ae9b9aa78825b8d65a0d2498b449eaa3d
 RUN mkdir /opt/jruby \
