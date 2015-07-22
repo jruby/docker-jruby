@@ -3,10 +3,10 @@ FROM java:8-jdk
 RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ENV JRUBY_VERSION 9.0.0.0
-ENV JRUBY_SHA1 655665db3a1dc0462cba99d45532ab57d8416b5f168d8a0081bde9b7a93a394e
+ENV JRUBY_SHA256 655665db3a1dc0462cba99d45532ab57d8416b5f168d8a0081bde9b7a93a394e
 RUN mkdir /opt/jruby \
   && curl -fSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz -o /tmp/jruby.tar.gz \
-  && echo "$JRUBY_SHA1 /tmp/jruby.tar.gz" | sha256sum -c - \
+  && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
   && tar -zx --strip-components=1 -f /tmp/jruby.tar.gz -C /opt/jruby \
   && rm /tmp/jruby.tar.gz \
   && update-alternatives --install /usr/local/bin/ruby ruby /opt/jruby/bin/jruby 1
