@@ -2,8 +2,8 @@ FROM java:8-jre
 
 RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-ENV JRUBY_VERSION 1.7.22
-ENV JRUBY_SHA1 6b9e310a04ad8173d0d6dbe299da04c0ef85fc15
+ENV JRUBY_VERSION 1.7.23
+ENV JRUBY_SHA1 2b5e796feeed2bcfab02f8bf2ff3d77ca318e310
 RUN mkdir /opt/jruby \
   && curl -fSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA1 /tmp/jruby.tar.gz" | sha1sum -c - \
