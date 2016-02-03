@@ -12,13 +12,23 @@ RUN mkdir /opt/jruby \
   && update-alternatives --install /usr/local/bin/ruby ruby /opt/jruby/bin/jruby 1
 ENV PATH /opt/jruby/bin:$PATH
 
-RUN echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
+# skip installing gem documentation
+RUN mkdir -p /opt/jruby/etc \
+	&& { \
+		echo 'install: --no-document'; \
+		echo 'update: --no-document'; \
+	} >> /opt/jruby/etc/gemrc
 
-ENV GEM_HOME /usr/local/bundle
-ENV PATH $GEM_HOME/bin:$PATH
 RUN gem install bundler \
 	&& bundle config --global path "$GEM_HOME" \
-	&& bundle config --global bin "$GEM_HOME/bin"
+	&& bundle config --global bin "$GEM_HOME/bin" \
+	&& bundle config --global silence_root_warning true
+
+# install things globally, for great justice
+ENV GEM_HOME /usr/local/bundle
+ENV PATH $GEM_HOME/bin:$PATH
+RUN mkdir -p "$GEM_HOME" \
+	&& chmod 777 "$GEM_HOME"
 
 # don't create ".bundle" in all our apps
 ENV BUNDLE_APP_CONFIG $GEM_HOME
