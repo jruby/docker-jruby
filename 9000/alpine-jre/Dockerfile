@@ -2,22 +2,21 @@ FROM java:8-jre-alpine
 
 RUN apk add --no-cache \
       bash \
-      libc6-compat \
-      tar \
-      curl
+      libc6-compat
 
 ENV JRUBY_VERSION 9.1.2.0
 ENV JRUBY_SHA256 60598a465883ab4c933f805de4a7f280052bddc793b95735465619c03ca43f35
 
-RUN mkdir -p /opt/jruby && \
-    curl -fSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz -o /tmp/jruby.tar.gz && \
-    echo "$JRUBY_SHA256 */tmp/jruby.tar.gz" | sha256sum -c - && \
-    tar -zx --strip-components=1 -f /tmp/jruby.tar.gz -C /opt/jruby && \
-    rm /tmp/jruby.tar.gz && \
-    ln -s /opt/jruby/bin/jruby /usr/local/bin/ruby && \
-    apk del \
+RUN apk add --no-cache --virtual .build-deps \
+      curl \
       tar \
-      curl
+  && mkdir -p /opt/jruby \
+  && curl -fSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz -o /tmp/jruby.tar.gz \
+  && echo "$JRUBY_SHA256 */tmp/jruby.tar.gz" | sha256sum -c - \
+  && tar -zx --strip-components=1 -f /tmp/jruby.tar.gz -C /opt/jruby \
+  && rm /tmp/jruby.tar.gz \
+  && ln -s /opt/jruby/bin/jruby /usr/local/bin/ruby \
+  && apk del .build-deps
 
 # set the jruby binaries in the path
 ENV PATH /opt/jruby/bin:$PATH
