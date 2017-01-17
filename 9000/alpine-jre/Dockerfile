@@ -4,8 +4,8 @@ RUN apk add --no-cache \
       bash \
       libc6-compat
 
-ENV JRUBY_VERSION 9.1.6.0
-ENV JRUBY_SHA256 a32dc54b80aa0069323654e06b84fdcea077d3601ec54208a67c4b969f369b89
+ENV JRUBY_VERSION 9.1.7.0
+ENV JRUBY_SHA256 95ac7d2316fb7698039267265716dd2159fa5b49f0e0dc6e469c80ad59072926
 
 RUN apk add --no-cache --virtual .build-deps \
       curl \
