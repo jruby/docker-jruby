@@ -1,0 +1,8 @@
+sudo: false
+
+services:
+  - docker
+
+script:
+  - ./update.sh && git diff --quiet HEAD
+  - for i in $(git diff --stat --name-only | grep Dockerfile); do docker build -< $i; done
