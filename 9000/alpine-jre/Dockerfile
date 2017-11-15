@@ -1,11 +1,11 @@
-FROM openjdk:8-jre-alpine
+FROM i386/openjdk:8-jre-alpine
 
 RUN apk add --no-cache \
       bash \
       libc6-compat
 
-ENV JRUBY_VERSION 9.1.13.0
-ENV JRUBY_SHA256 9d156646623ac2f27174721035b52572a4b05690db7c1293295aa2c04aad3908
+ENV JRUBY_VERSION 9.1.14.0
+ENV JRUBY_SHA256 074057e672350a6652d92ccaaa5d517fc7d6b980bce8b947515fb64d114d1651
 
 RUN apk add --no-cache --virtual .build-deps \
       curl \
