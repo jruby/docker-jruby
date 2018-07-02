@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm
 ENV JRUBY_VERSION 9.2.0.0
 ENV JRUBY_SHA256 42718dea5fc90b7696cb3fccf8e8d546729173963ad0bc477d66545677d00684
 RUN mkdir /opt/jruby \
-  && curl -fSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz -o /tmp/jruby.tar.gz \
+  && curl -fSL https://repo1.maven.org/maven2/org/jruby/jruby-dist/${JRUBY_VERSION}/jruby-dist-${JRUBY_VERSION}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
   && tar -zx --strip-components=1 -f /tmp/jruby.tar.gz -C /opt/jruby \
   && rm /tmp/jruby.tar.gz \

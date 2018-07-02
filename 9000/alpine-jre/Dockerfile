@@ -11,7 +11,7 @@ RUN apk add --no-cache --virtual .build-deps \
       curl \
       tar \
   && mkdir -p /opt/jruby \
-  && curl -fSL https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz -o /tmp/jruby.tar.gz \
+  && curl -fSL https://repo1.maven.org/maven2/org/jruby/jruby-dist/${JRUBY_VERSION}/jruby-dist-${JRUBY_VERSION}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 */tmp/jruby.tar.gz" | sha256sum -c - \
   && tar -zx --strip-components=1 -f /tmp/jruby.tar.gz -C /opt/jruby \
   && rm /tmp/jruby.tar.gz \
