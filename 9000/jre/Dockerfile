@@ -2,8 +2,8 @@ FROM openjdk:8-jre
 
 RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-ENV JRUBY_VERSION 9.2.2.0
-ENV JRUBY_SHA256 0daadec9b9416558cba36908593bf9ec6cd625f853203a54b397abeb7a5d1c42
+ENV JRUBY_VERSION 9.2.3.0
+ENV JRUBY_SHA256 d9c2d179696394aafe41027f0e48fa53267ecde04b3d10babc88fea4d523336a
 RUN mkdir /opt/jruby \
   && curl -fSL https://repo1.maven.org/maven2/org/jruby/jruby-dist/${JRUBY_VERSION}/jruby-dist-${JRUBY_VERSION}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
