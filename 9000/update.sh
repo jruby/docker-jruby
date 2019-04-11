@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 (
 	set -e
 
 	JRUBY_VERSION=$(< VERSION)
-	SHA="$(curl -SLfs https://s3.amazonaws.com/jruby.org/downloads/${JRUBY_VERSION}/jruby-bin-${JRUBY_VERSION}.tar.gz.sha256)"
+	SHA="$(curl -SLfs https://repo1.maven.org/maven2/org/jruby/jruby-dist/${JRUBY_VERSION}/jruby-dist-${JRUBY_VERSION}-bin.tar.gz.sha256)"
 	SHA=$(printf '%s' ${SHA})
 
 	for i in $(ls); do
