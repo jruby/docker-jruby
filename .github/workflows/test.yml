@@ -1,0 +1,21 @@
+name: Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: verify diffs
+      run: ./update.sh && git diff --quiet HEAD
+    - name: Build all the things
+      run: for i in $(git diff --stat --name-only --diff-filter=d HEAD~1 | grep Dockerfile); do docker build -< $i; done
+
