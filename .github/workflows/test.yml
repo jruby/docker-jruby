@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        dockerfiles: 
+        dockerfile: 
           - 9000/jre/Dockerfile
           - 9000/jdk/Dockerfile
           - 9000/alpine-jre/Dockerfile
