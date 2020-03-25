@@ -22,5 +22,5 @@ jobs:
     - name: verify diffs
       run: ./update.sh && git diff --quiet HEAD
     - name: Build all the things
-      run: do docker build -< ${{ matrix.dockerfile }}
+      run: docker build -< ${{ matrix.dockerfile }}
 
