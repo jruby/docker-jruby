@@ -7,9 +7,14 @@ on:
     branches: [ master ]
 
 jobs:
-
   build:
-
+    strategy:
+      matrix:
+        dockerfiles: 
+          - 9000/jre/Dockerfile
+          - 9000/jdk/Dockerfile
+          - 9000/alpine-jre/Dockerfile
+          - 9000/apline-jdk/Dockerfile
     runs-on: ubuntu-latest
 
     steps:
@@ -17,5 +22,5 @@ jobs:
     - name: verify diffs
       run: ./update.sh && git diff --quiet HEAD
     - name: Build all the things
-      run: for i in $(git diff --stat --name-only --diff-filter=d HEAD~1 | grep Dockerfile); do docker build -< $i; done
+      run: do docker build -< ${{ matrix.dockerfile }}
 
