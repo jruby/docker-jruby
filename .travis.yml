@@ -1,6 +1,0 @@
-services:
-  - docker
-
-script:
-  - ./update.sh && git diff --quiet HEAD
-  - for i in $(git diff --stat --name-only --diff-filter=d HEAD~1 | grep Dockerfile); do docker build -< $i; done
