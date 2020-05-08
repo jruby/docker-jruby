@@ -15,9 +15,7 @@ jobs:
           - 9000/jdk8/Dockerfile
           - 9000/jre11/Dockerfile
           - 9000/jdk11/Dockerfile
-          - 9000/jre14/Dockerfile
           - 9000/jdk14/Dockerfile
-          - 9000/jre15/Dockerfile
           - 9000/jdk15/Dockerfile
     runs-on: ubuntu-latest
 
