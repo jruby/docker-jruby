@@ -1,4 +1,4 @@
-FROM jruby:9.1-jdk
+FROM jruby:9.2-jdk
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
