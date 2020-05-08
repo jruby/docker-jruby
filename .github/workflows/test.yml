@@ -11,10 +11,14 @@ jobs:
     strategy:
       matrix:
         dockerfile: 
-          - 9000/jre/Dockerfile
-          - 9000/jdk/Dockerfile
-          - 9000/alpine-jre/Dockerfile
-          - 9000/alpine-jdk/Dockerfile
+          - 9000/jre8/Dockerfile
+          - 9000/jdk8/Dockerfile
+          - 9000/jre11/Dockerfile
+          - 9000/jdk11/Dockerfile
+          - 9000/jre14/Dockerfile
+          - 9000/jdk14/Dockerfile
+          - 9000/jre15/Dockerfile
+          - 9000/jdk15/Dockerfile
     runs-on: ubuntu-latest
 
     steps:
