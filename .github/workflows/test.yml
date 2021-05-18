@@ -10,13 +10,12 @@ jobs:
   build:
     strategy:
       matrix:
-        dockerfile: 
+        dockerfile:
           - 9000/jre8/Dockerfile
           - 9000/jdk8/Dockerfile
           - 9000/jre11/Dockerfile
           - 9000/jdk11/Dockerfile
-          - 9000/jdk14/Dockerfile
-          - 9000/jdk15/Dockerfile
+          - 9000/jdk16/Dockerfile
     runs-on: ubuntu-latest
 
     steps:
@@ -25,4 +24,3 @@ jobs:
       run: ./update.sh && git diff --quiet HEAD
     - name: Build all the things
       run: docker build -< ${{ matrix.dockerfile }}
-
