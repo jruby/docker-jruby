@@ -11,11 +11,16 @@ jobs:
     strategy:
       matrix:
         dockerfile:
-          - 9000/jre8/Dockerfile
-          - 9000/jdk8/Dockerfile
-          - 9000/jre11/Dockerfile
-          - 9000/jdk11/Dockerfile
-          - 9000/jdk16/Dockerfile
+          - 9.2/jdk8/Dockerfile
+          - 9.2/jdk11/Dockerfile
+          - 9.2/jdk17/Dockerfile
+          - 9.2/jre8/Dockerfile
+          - 9.2/jre11/Dockerfile
+          - 9.3/jdk8/Dockerfile
+          - 9.3/jdk11/Dockerfile
+          - 9.3/jdk17/Dockerfile
+          - 9.3/jre8/Dockerfile
+          - 9.3/jre11/Dockerfile
     runs-on: ubuntu-latest
 
     steps:
