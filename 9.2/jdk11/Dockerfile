@@ -2,8 +2,8 @@ FROM openjdk:11-jdk-buster
 
 RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-ENV JRUBY_VERSION 9.2.19.0
-ENV JRUBY_SHA256 1f74885a2d3fa589fcbeb292a39facf7f86be3eac1ab015e32c65d32acf3f3bf
+ENV JRUBY_VERSION 9.2.20.0
+ENV JRUBY_SHA256 bf0c4f206382478ab3e3cd7fce9b18d1b7de7da37124e97e24525cff99639c4b
 RUN mkdir /opt/jruby \
   && curl -fSL https://repo1.maven.org/maven2/org/jruby/jruby-dist/${JRUBY_VERSION}/jruby-dist-${JRUBY_VERSION}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
