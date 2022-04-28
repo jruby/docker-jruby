@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-buster
+FROM eclipse-temurin:17-jdk
 
 RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
