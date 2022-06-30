@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-buster
+FROM eclipse-temurin:11-jre-focal
 
 RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
