@@ -1,6 +1,6 @@
 FROM eclipse-temurin:11-jdk-focal
 
-RUN apt-get update && apt-get install -y libc6-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libc6-dev make --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ENV JRUBY_VERSION 9.4.0.0
 ENV JRUBY_SHA256 897bb8a98ad43adcbf5fd3aa75ec85b3312838c949592ca3f623dc1f569d2870
