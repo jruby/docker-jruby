@@ -2,8 +2,8 @@ FROM eclipse-temurin:17-jre-focal
 
 RUN apt-get update && apt-get install -y libc6-dev make --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-ENV JRUBY_VERSION 9.4.5.0
-ENV JRUBY_SHA256 a40f78c4641ccc86752e16b2da247fd6bc9fbcf9a4864cf1be36f7ff7b35684c
+ENV JRUBY_VERSION 9.4.6.0
+ENV JRUBY_SHA256 2da14de4152b71fdbfa35ba4687a46ef12cd465740337b549cc1fe6c7c139813
 RUN mkdir /opt/jruby \
   && curl -fSL https://repo1.maven.org/maven2/org/jruby/jruby-dist/${JRUBY_VERSION}/jruby-dist-${JRUBY_VERSION}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
