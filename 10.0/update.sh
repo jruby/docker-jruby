@@ -10,8 +10,8 @@
 	for i in $(ls); do
 		if [ -d "$i" ]; then
 			echo setting version on "$i/Dockerfile"
-			sed -i -- "s/ENV\ JRUBY_VERSION.*/ENV JRUBY_VERSION ${JRUBY_VERSION}/" "$i/Dockerfile"
-			sed -i -- "s/ENV\ JRUBY_SHA256.*/ENV JRUBY_SHA256 ${SHA}/" "$i/Dockerfile"
+			sed -i -- "s/ENV\ JRUBY_VERSION.*/ENV JRUBY_VERSION=${JRUBY_VERSION}/" "$i/Dockerfile"
+			sed -i -- "s/ENV\ JRUBY_SHA256.*/ENV JRUBY_SHA256=${SHA}/" "$i/Dockerfile"
 		fi
 	done
 
