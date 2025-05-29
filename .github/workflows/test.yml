@@ -31,6 +31,15 @@ jobs:
           - 10.0/jre21/Dockerfile
           - 10.0/jdk24/Dockerfile
           - 10.0/jre24/Dockerfile
+          - 9.4-dev/jdk11/Dockerfile
+          - 9.4-dev/jdk8/Dockerfile
+          - 9.4-dev/jdk21/Dockerfile
+          - 9.4-dev/jdk17/Dockerfile
+          - 9.4-dev/jre11/Dockerfile
+          - 9.4-dev/jre8/Dockerfile
+          - 9.4-dev/jre21/Dockerfile
+          - 9.4-dev/jre17/Dockerfile
+
 
     runs-on: ubuntu-latest
 
