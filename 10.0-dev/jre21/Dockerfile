@@ -4,11 +4,11 @@ RUN apt-get update && apt-get install -y libc6-dev make --no-install-recommends 
 
 ENV JRUBY_VERSION=10.0.1.0
 ENV JRUBY_SNAPSHOT_VERSION=10.0.1.0-SNAPSHOT
-ENV JRUBY_SNAPSHOT_TIMESTAMP=20250603.064035
-ENV JRUBY_SNAPSHOT_BUILDNUMBER=65
-ENV JRUBY_SHA256=a5e450d24bd4ed67cd38b8174a7c94ccf28ecaa065ffd63a27709f21ca232739
+ENV JRUBY_SNAPSHOT_TIMESTAMP=20250626.064032
+ENV JRUBY_SNAPSHOT_BUILDNUMBER=19
+ENV JRUBY_SHA256=14fe6125fc47b169f7810c6d10e3c8e28675530ebcc18c635b112ced56808866
 RUN mkdir /opt/jruby \
-  && curl -fSL https://oss.sonatype.org/content/repositories/snapshots/org/jruby/jruby-dist/${JRUBY_SNAPSHOT_VERSION}/jruby-dist-${JRUBY_VERSION}-${JRUBY_SNAPSHOT_TIMESTAMP}-${JRUBY_SNAPSHOT_BUILDNUMBER}-bin.tar.gz -o /tmp/jruby.tar.gz \
+  && curl -fSL https://central.sonatype.com/repository/maven-snapshots/org/jruby/jruby-dist/${JRUBY_SNAPSHOT_VERSION}/jruby-dist-${JRUBY_VERSION}-${JRUBY_SNAPSHOT_TIMESTAMP}-${JRUBY_SNAPSHOT_BUILDNUMBER}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
   && tar -zx --strip-components=1 -f /tmp/jruby.tar.gz -C /opt/jruby \
   && rm /tmp/jruby.tar.gz \

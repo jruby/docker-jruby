@@ -2,13 +2,13 @@ FROM eclipse-temurin:8-jre-jammy
 
 RUN apt-get update && apt-get install -y libc6-dev make --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-ENV JRUBY_VERSION=9.4.13.0
-ENV JRUBY_SNAPSHOT_VERSION=9.4.13.0-SNAPSHOT
-ENV JRUBY_SNAPSHOT_TIMESTAMP=20250529.175042
-ENV JRUBY_SNAPSHOT_BUILDNUMBER=40
-ENV JRUBY_SHA256=905c60281b06c4eaa8ad659e5314a47af5b353706d6492e546348207a9374a14
+ENV JRUBY_VERSION=9.4.14.0
+ENV JRUBY_SNAPSHOT_VERSION=9.4.14.0-SNAPSHOT
+ENV JRUBY_SNAPSHOT_TIMESTAMP=20250626.161306
+ENV JRUBY_SNAPSHOT_BUILDNUMBER=1
+ENV JRUBY_SHA256=8c03c39b894b5ffed3efba7505039e579d12ae11bb0c0830de682c265b7101b0
 RUN mkdir /opt/jruby \
-  && curl -fSL https://oss.sonatype.org/content/repositories/snapshots/org/jruby/jruby-dist/${JRUBY_SNAPSHOT_VERSION}/jruby-dist-${JRUBY_VERSION}-${JRUBY_SNAPSHOT_TIMESTAMP}-${JRUBY_SNAPSHOT_BUILDNUMBER}-bin.tar.gz -o /tmp/jruby.tar.gz \
+  && curl -fSL https://central.sonatype.com/repository/maven-snapshots/org/jruby/jruby-dist/${JRUBY_SNAPSHOT_VERSION}/jruby-dist-${JRUBY_VERSION}-${JRUBY_SNAPSHOT_TIMESTAMP}-${JRUBY_SNAPSHOT_BUILDNUMBER}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
   && tar -zx --strip-components=1 -f /tmp/jruby.tar.gz -C /opt/jruby \
   && rm /tmp/jruby.tar.gz \
