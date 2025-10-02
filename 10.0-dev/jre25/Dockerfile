@@ -1,4 +1,4 @@
-FROM eclipse-temurin:24-jdk-noble
+FROM eclipse-temurin:25-jre-noble
 
 RUN apt-get update && apt-get install -y libc6-dev make curl --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
