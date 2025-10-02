@@ -12,13 +12,13 @@ jobs:
       matrix:
         dockerfile:
           - 10.0-dev/jdk21/Dockerfile
-          - 10.0-dev/jdk24/Dockerfile
+          - 10.0-dev/jdk25/Dockerfile
           - 10.0-dev/jre21/Dockerfile
-          - 10.0-dev/jre24/Dockerfile
+          - 10.0-dev/jre25/Dockerfile
           - 10.0/jdk21/Dockerfile
-          - 10.0/jdk24/Dockerfile
+          - 10.0/jdk25/Dockerfile
           - 10.0/jre21/Dockerfile
-          - 10.0/jre24/Dockerfile
+          - 10.0/jre25/Dockerfile
           - 9.3/jdk11/Dockerfile
           - 9.3/jdk17/Dockerfile
           - 9.3/jdk21/Dockerfile
