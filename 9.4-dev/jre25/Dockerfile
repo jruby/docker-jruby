@@ -4,9 +4,9 @@ RUN apt-get update && apt-get install -y libc6-dev make --no-install-recommends 
 
 ENV JRUBY_VERSION=9.4.15.0
 ENV JRUBY_SNAPSHOT_VERSION=9.4.15.0-SNAPSHOT
-ENV JRUBY_SNAPSHOT_TIMESTAMP=20250828.205424
-ENV JRUBY_SNAPSHOT_BUILDNUMBER=1
-ENV JRUBY_SHA256=c24fb8058e40b80e38779097b44412bfd16cc33862b308f74435c81770f52f56
+ENV JRUBY_SNAPSHOT_TIMESTAMP=20251002.154256
+ENV JRUBY_SNAPSHOT_BUILDNUMBER=2
+ENV JRUBY_SHA256=415ac37079d9f60aacd52ad132febe55ae554f8f7b2bc38bbb40e002c7e2068c
 RUN mkdir /opt/jruby \
   && curl -fSL https://central.sonatype.com/repository/maven-snapshots/org/jruby/jruby-dist/${JRUBY_SNAPSHOT_VERSION}/jruby-dist-${JRUBY_VERSION}-${JRUBY_SNAPSHOT_TIMESTAMP}-${JRUBY_SNAPSHOT_BUILDNUMBER}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
