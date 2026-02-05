@@ -4,9 +4,9 @@ RUN apt-get update && apt-get install -y libc6-dev make --no-install-recommends 
 
 ENV JRUBY_VERSION=10.0.4.0
 ENV JRUBY_SNAPSHOT_VERSION=10.0.4.0-SNAPSHOT
-ENV JRUBY_SNAPSHOT_TIMESTAMP=20260204.064424
-ENV JRUBY_SNAPSHOT_BUILDNUMBER=4
-ENV JRUBY_SHA256=101de7f5993bd70359baf6714ebae40e77de5998767dea3f1d3aee87e8d6f038
+ENV JRUBY_SNAPSHOT_TIMESTAMP=20260205.053943
+ENV JRUBY_SNAPSHOT_BUILDNUMBER=5
+ENV JRUBY_SHA256=f4eacb66bc37565664496cbb50f0c0f2a3a26d6d80e2daf8d45a17ac8fcc7848
 RUN mkdir /opt/jruby \
   && curl -fSL https://central.sonatype.com/repository/maven-snapshots/org/jruby/jruby-dist/${JRUBY_SNAPSHOT_VERSION}/jruby-dist-${JRUBY_VERSION}-${JRUBY_SNAPSHOT_TIMESTAMP}-${JRUBY_SNAPSHOT_BUILDNUMBER}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
@@ -22,7 +22,7 @@ RUN mkdir -p /opt/jruby/etc \
                echo 'update: --no-document'; \
        } >> /opt/jruby/etc/gemrc
 
-RUN gem install bundler rake net-telnet xmlrpc
+RUN gem install net-telnet xmlrpc
 
 # don't create ".bundle" in all our apps
 ENV GEM_HOME=/usr/local/bundle

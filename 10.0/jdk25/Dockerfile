@@ -19,7 +19,7 @@ RUN mkdir -p /opt/jruby/etc \
                echo 'update: --no-document'; \
        } >> /opt/jruby/etc/gemrc
 
-RUN gem install bundler rake net-telnet xmlrpc
+RUN gem install net-telnet xmlrpc
 
 # don't create ".bundle" in all our apps
 ENV GEM_HOME=/usr/local/bundle
