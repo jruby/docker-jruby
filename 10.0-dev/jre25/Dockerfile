@@ -2,11 +2,11 @@ FROM eclipse-temurin:25-jre-noble
 
 RUN apt-get update && apt-get install -y libc6-dev make curl --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-ENV JRUBY_VERSION=10.0.6.0
-ENV JRUBY_SNAPSHOT_VERSION=10.0.6.0-SNAPSHOT
-ENV JRUBY_SNAPSHOT_TIMESTAMP=20260426.085958
-ENV JRUBY_SNAPSHOT_BUILDNUMBER=5
-ENV JRUBY_SHA256=20c192252632e53e4633ffae94df370ba4ba6ba878d13b0c0179866b97a6ae6e
+ENV JRUBY_VERSION=10.0.7.0
+ENV JRUBY_SNAPSHOT_VERSION=10.0.7.0-SNAPSHOT
+ENV JRUBY_SNAPSHOT_TIMESTAMP=20260611.172410
+ENV JRUBY_SNAPSHOT_BUILDNUMBER=1
+ENV JRUBY_SHA256=cb1a36f3de17f9a632ad50b8cfc9702a4a6c59f4cd64efd5084af8b613612a22
 RUN mkdir /opt/jruby \
   && curl -fSL https://central.sonatype.com/repository/maven-snapshots/org/jruby/jruby-dist/${JRUBY_SNAPSHOT_VERSION}/jruby-dist-${JRUBY_VERSION}-${JRUBY_SNAPSHOT_TIMESTAMP}-${JRUBY_SNAPSHOT_BUILDNUMBER}-bin.tar.gz -o /tmp/jruby.tar.gz \
   && echo "$JRUBY_SHA256 /tmp/jruby.tar.gz" | sha256sum -c - \
